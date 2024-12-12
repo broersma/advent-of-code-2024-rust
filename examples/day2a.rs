@@ -1,9 +1,14 @@
 use itertools::Itertools;
 
 fn is_safe(levels: &Vec<u32>) -> bool {
-    let diffs = levels.iter().tuple_windows().map(|(&a,&b)|a as i32 - b as i32).collect::<Vec<_>>();
-    
-    diffs.iter().all(|d: &i32| 1 <= d.abs() && d.abs() <= 3) && ( diffs.iter().all(|d| *d > 0) || diffs.iter().all(|d| *d < 0) )
+    let diffs = levels
+        .iter()
+        .tuple_windows()
+        .map(|(&a, &b)| a as i32 - b as i32)
+        .collect::<Vec<_>>();
+
+    diffs.iter().all(|d: &i32| 1 <= d.abs() && d.abs() <= 3)
+        && (diffs.iter().all(|d| *d > 0) || diffs.iter().all(|d| *d < 0))
 }
 
 pub fn main() {
@@ -16,9 +21,5 @@ pub fn main() {
                 .collect::<Vec<u32>>()
         });
 
-
-    println!(
-        "{:?}",
-        reports.filter(|r| is_safe(&r)).count()
-    );
+    println!("{:?}", reports.filter(|r| is_safe(&r)).count());
 }

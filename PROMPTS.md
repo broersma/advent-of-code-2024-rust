@@ -25,3 +25,7 @@ My prompts in relevant ChatGPT conversations, offered here for purposes of educa
 > How do I make a union of hashSet and a new element in Rust and then get a new hashset?
 
 > How about the union function on hashset?
+
+## Day 8
+
+> How to append 2 Vecs in RusT?
